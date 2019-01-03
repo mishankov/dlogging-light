@@ -60,6 +60,6 @@ def fill_template(template, caller, d, message, style):
 
 	# add message
 	while '{message}' in template:
-		template = template.replace('{message}', message)
+		template = template.replace('{message}', str(message))
 
 	return template
