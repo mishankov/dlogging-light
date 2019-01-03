@@ -20,9 +20,9 @@ def upgrade_config(config):
 			if config[level]['outputs'][i]['type'] == 'console':
 				config[level]['outputs'][i]['style'] = style_list_to_str(config[level]['outputs'][i]['style'])
 
-	# rewrite logging level from enviromental variable
+	# rewrite logging level from enviromental variable if it exists
 	try:
-		config["level"] = os.getenv('LOGGING_LEVEL', 'DEBUG')
+		config["level"] = os.getenv('LOGGING_LEVEL', config["level"])
 	except e:
 		pass
 
